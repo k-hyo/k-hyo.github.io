@@ -1,0 +1,62 @@
+name: Generate docs index
+
+on:
+  push:
+    paths:
+      - "docs/*.html"   # docs 配下に日次ファイルが追加/更新されたとき
+  workflow_dispatch:     # 手動実行も可能にしておく
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate docs/index.html
+        run: |
+          mkdir -p docs
+          cat > docs/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="ja">
+          <head>
+            <meta charset="UTF-8" />
+            <title>日次レポート一覧</title>
+            <style>
+              body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 2rem; }
+              h1 { font-size: 1.6rem; }
+              ul { list-style: none; padding: 0; }
+              li { margin: 0.25rem 0; }
+              a { text-decoration: none; color: #0366d6; }
+              a:hover { text-decoration: underline; }
+            </style>
+          </head>
+          <body>
+            <h1>日次レポート一覧</h1>
+            <ul>
+          EOF
+
+          # docs/*.html から index.html を除外して、新しい日付順に並べる
+          for f in $(ls docs/*.html | grep -v 'docs/index.html' | sort -r); do
+            fname=$(basename "$f")        # 例: 2026-02-11.html
+            date="${fname%.html}"         # 例: 2026-02-11
+            echo "              <li><a href=\"${fname}\">${date}</a></li>" >> docs/index.html
+          done
+
+          cat >> docs/index.html << 'EOF'
+            </ul>
+          </body>
+          </html>
+          EOF
+
+      - name: Commit and push index.html
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          # 変更があるときだけ commit する
+          if ! git diff --cached --quiet; then
+            git commit -m "Update docs index"
+            git push
+          fi
