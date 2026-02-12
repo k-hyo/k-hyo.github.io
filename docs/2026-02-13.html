@@ -98,4 +98,200 @@
         .domain-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .domain-header {
+            font-weight: bold;
+            color: var(--text-heading);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Tags and Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .tag.insight { background-color: var(--tag-insight-bg); color: var(--tag-insight-text); }
+        .tag.impact { background-color: var(--tag-impact-bg); color: var(--tag-impact-text); }
+        .tag.view { background-color: var(--tag-view-bg); color: var(--tag-view-text); }
+
+        .news-title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+
+        /* Short Signal */
+        .short-signal {
+            background-color: #fff;
+            border: 1px dashed #94a3b8;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .short-signal li {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .short-signal li::before {
+            content: "🔮";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.9em;
+        }
+
+        /* Footer / CTA */
+        .cta-box {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .cta-box strong {
+            color: #38bdf8;
+        }
+        
+        .source-link {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .source-link a {
+            color: #64748b;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>
+            🚀 Daily Strategic Data Briefing
+            <span class="date">[2026-02-13]</span>
+        </h1>
+    </header>
+
+    <section>
+        <h2>💎 Spotlight: Agentic & Autonomous Shifts</h2>
+        <div class="spotlight">
+            <span class="spotlight-title">「Agentic Operating System (AOS)」の登場</span>
+            <ul>
+                <li>
+                    <span class="tag insight">Insight</span>
+                    2月5日、テレコム分野を皮切りに「エージェント専用OS」が発表されました。これは単なるツールではなく、AIエージェントがビジネスプロセス全体を独立して管理するための基盤です。エージェントは自律的に不正検知を行い、サプライチェーンの調整を自己判断で実行する能力を獲得しています。
+                </li>
+                <li>
+                    <span class="tag impact">Future Impact</span>
+                    従来の「人間がツールを操作する」モデルから、「エージェントがOS上で業務を完結させ、人間は例外管理のみを行う」モデルへの逆転が始まります。データ組織は、エージェントに与える「行動権限」と「コンテキスト」の設計が主要業務となります。
+                </li>
+            </ul>
+            <span class="source-link">Source: <a href="https://bostoninstituteofanalytics.org/blog/latest-machine-learning-updates-in-2026-key-developments-in-generative-ai-this-week-2nd-6th-feb/" target="_blank">Boston Institute of Analytics (2026/02/07)</a></span>
+        </div>
+    </section>
+
+    <section>
+        <h2>🏗️ 3 Major Domains Update</h2>
+        <div class="domains-grid">
+
+            <div class="domain-card">
+                <div class="domain-header">1. AI活用のためのデータ整備 (AI-Ready Data)</div>
+                <span class="news-title">GraphRAGとナレッジグラフの統合による「論理的RAG」の完成</span>
+                <ul>
+                    <li>
+                        <strong>概要:</strong> 単なるベクトル検索（Vector DB）の限界を突破するため、構造化された「ナレッジグラフ」とベクトル検索を組み合わせたGraphRAGがエンタープライズの標準となりました。これにより、検索精度は99%に達し、複雑な関係性の推論が可能になっています。
+                    </li>
+                    <li>
+                        <span class="tag view">Pro's View</span>
+                        2026年のAIレディネスは「データの量」ではなく、データ間の「関係性の定義（オントロジー）」の質で決まります。非構造化データを「意味のあるグラフ」として再構成する能力が、企業のAI競争力を左右します。
+                    </li>
+                </ul>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-header">2. データガバナンス (Next-Gen Governance)</div>
+                <span class="news-title">マルチエージェントによる「自律的ガバナンス・ループ」の構築</span>
+                <ul>
+                    <li>
+                        <strong>概要:</strong> 一つのAIが全てを行うのではなく、「計画エージェント」「実行エージェント」「検証エージェント」が互いを監視するマルチエージェント・システム（MAS）がガバナンスの主流となりました。特にAnthropicのMCP（Model Context Protocol）が、エージェント間の安全なリソースアクセスを標準化しています。
+                    </li>
+                    <li>
+                        <span class="tag view">Pro's View</span>
+                        ガバナンスは「静的なポリシー」から「動的なエージェント間のチェック＆バランス」へと進化しました。ガバナンス担当者は、検証エージェント（Validator Agents）に組み込むコンプライアンス・ルールのコード化に注力すべきです。
+                    </li>
+                </ul>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-header">3. データエンジニアリング/基盤 (Engineering & Infra)</div>
+                <span class="news-title">DataOpsの基盤化と「エージェント数 ＞ 従業員数」へのカウントダウン</span>
+                <ul>
+                    <li>
+                        <strong>概要:</strong> DataOpsは単なる手法から、エージェントが活動するための「ライフライン」へと昇華しました。DatabricksのUnity Catalogに代表される、データ・モデル・AI資産を一元管理する「統合コントロールプレーン」が不可欠となっています。
+                    </li>
+                    <li>
+                        <span class="tag view">Pro's View</span>
+                        インフラ投資の根拠が「レポーティング効率」から「エージェントの稼働率」へとシフトしています。2027年までにエージェント数が従業員数を超えるとの予測もあり、自律ソフトウェアワーカー（Autonomous Software Workers）を収容できるスケーラブルなインフラ構築が急務です。
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>🔮 Short Signal (注目すべき兆候)</h2>
+        <div class="short-signal">
+            <ul>
+                <li><strong>「Shadow Board（AI取締役会）」の試行:</strong> 2026年、企業統治にAIエージェントによる「影の取締役会」を統合し、意思決定のシミュレーションとリスク評価を自動化する動きが先駆的企業で始まっています。</li>
+                <li><strong>SLM（Structured Language Models）の台頭:</strong> 次の単語を予測するだけでなく、事前定義された「推論メソッド」に従って出力を生成するSLMが、エンタープライズの意思決定エンジンとして注目されています。</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="cta-box">
+        <strong>Next Action:</strong> 御社のデータ基盤を「Agentic OS」に対応させるための「AI Readiness Assessment（AIレディネス評価）」の実施計画を策定しましょうか？
+    </div>
+
+</div>
+
+</body>
+</html>
